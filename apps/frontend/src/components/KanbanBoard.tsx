@@ -63,12 +63,10 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
     if (item) {
       console.log(`Card edit requested: ${cardId}`);
       onEditItem?.(item);
-      setEditingItem(null);
-      setIsNewTask(true);
+      setEditingItem(item); // Set the item to edit (not null)
+      setIsNewTask(false); // This is editing, not creating new
       setIsModalOpen(true);
     }
-
-    // You can implement the edit functionality here
   };
 
   const handleCardDelete = (cardId: string): void => {
